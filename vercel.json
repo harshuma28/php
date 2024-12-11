@@ -1,10 +1,18 @@
 {
   "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.7.3"
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.7.1"
     }
   },
   "routes": [
-    { "src": "/(.*)",  "dest": "/api/zee5.php" }
-  ]
+     
+    {
+      "src": "/(.*)",
+      "dest": "/api/zee5.php",
+      "headers": {
+        "Cache-Control": "max-age=84000, public"
+      }
+    }
+  ],
+  "regions": ["bom1"]
 }
